@@ -10,7 +10,18 @@ const userRoutes = require('./routes/users');
 const app = express();
 
 // Middleware
-app.use(cors());
+// Update CORS configuration
+const corsOptions = {
+    origin: process.env.NODE_ENV === 'production'
+        ? [process.env.CLIENT_URL, 'https://your-app.vercel.app']
+        : ['http://localhost:5173', 'http://localhost:3000'],
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+};
+
+app.use(cors(corsOptions));
+
 app.use(express.json());
 
 // Routes

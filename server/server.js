@@ -13,7 +13,7 @@ const app = express();
 // Update CORS configuration
 const corsOptions = {
     origin: process.env.NODE_ENV === 'production'
-        ? [process.env.CLIENT_URL, 'https://your-app.vercel.app']
+        ? [process.env.CLIENT_URL, 'https://linked-in-clone-jet-three.vercel.app']
         : ['http://localhost:5173', 'http://localhost:3000'],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
